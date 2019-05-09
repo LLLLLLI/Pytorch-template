@@ -4,7 +4,7 @@ import torch.nn as nn
 from torch.nn.utils.clip_grad import clip_grad_norm
 
 from net import Net
-from tools import accuracy
+from tools.utils import accuracy
 
 class Model(object):
     def __init__(self, opt):
@@ -90,5 +90,5 @@ class Model(object):
         
         out = self.forward(feature)
         loss = self.forward_loss(out, label)
-        return loss
+        return loss.data[0]
 

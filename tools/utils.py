@@ -1,4 +1,9 @@
 from collections import OrderedDict
+import yaml
+
+def get_configs(dataset):
+    data = yaml.load(open('dataset_cfg.yaml'))
+    return data[dataset]
 
 def accuracy(output, target, topk=(1,)):
     """Computes the precision@k for the specified values of k"""
